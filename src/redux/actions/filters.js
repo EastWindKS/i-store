@@ -4,9 +4,9 @@ export function setSortBy(value) {
     payload: value,
   };
 }
-// function setCategory(value) {
-//   return {
-//     type: "SET_CATEGORY",
-//     payload: value,
-//   };
-// }
+export function setCategory(value) {
+  return {
+    type: "SET_CATEGORY",
+    payload: value,
+  };
+}

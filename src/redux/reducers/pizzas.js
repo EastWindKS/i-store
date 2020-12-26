@@ -10,6 +10,11 @@ export default function SET_PIZZAS(store = initialState, action) {
         items: action.payload,
         isLoaded: true,
       };
+    case "SET_LOADING":
+      return {
+        ...store,
+        isLoaded: false,
+      };
     default:
       return store;
   }
