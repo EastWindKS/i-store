@@ -5,9 +5,9 @@ using SimpleServerAsp.Models;
 
 namespace SimpleServerAsp.Interfaces
 {
-   public interface IPizzaService
+    public interface IPizzaService
     {
-        Task<List<Pizza>> GettAllPizzas();
+        Task<List<Pizza>> GettAllPizzas(int? category, string filter);
         Task<Pizza> GetPizzaById(string id);
     }
 }

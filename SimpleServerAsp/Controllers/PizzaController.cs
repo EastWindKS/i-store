@@ -17,9 +17,11 @@ namespace SimpleServerAsp.Controllers
         private readonly IPizzaService _pizzaRepository;
 
         [HttpGet]
-        public ActionResult<List<Pizza>> GettAllPizzas()
+        public ActionResult<List<Pizza>> GettAllPizzas([FromQuery] int? category, [FromQuery] string filter)
         {
-            return Ok(_pizzaRepository.GettAllPizzas().Result);
+
+            var result = _pizzaRepository.GettAllPizzas(category, filter);
+            return Ok(result.Result);
         }
 
         [HttpGet("{id}", Name = "GetById")]

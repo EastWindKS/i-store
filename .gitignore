@@ -3,7 +3,7 @@
 /node_modules
 /.pnp
 .pnp.js
-
+.eslintcache
 # testing
 /coverage
 
@@ -248,3 +248,6 @@ project.lock.json
 # End of core ignore list, below put you custom 'per project' settings (patterns or path)
 #####
 SimpleServerAsp/appsettings.json
+.eslintcache
+.eslintcache
+.eslintcache

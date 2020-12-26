@@ -1,6 +1,6 @@
 const initialState = {
-  category: 0,
-  sortBy: "popular",
+  category: null,
+  sortBy: "popularity",
 };
 export default function SET_SORT_BY(store = initialState, action) {
   switch (action.type) {
