@@ -17,10 +17,11 @@ namespace SimpleServerAsp
         public IConfiguration Configuration { get; }
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<IPizzaService, PizzaService>();
-            services.AddControllers().AddNewtonsoftJson(option=>
+            services.AddSingleton<IPizzaService, PizzaService>();
+            services.AddControllers().AddNewtonsoftJson(option =>
                 option.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
-            }
+        }
+
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {

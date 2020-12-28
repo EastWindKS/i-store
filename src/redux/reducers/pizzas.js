@@ -2,7 +2,7 @@ const initialState = {
   items: [],
   isLoaded: false,
 };
-export default function SET_PIZZAS(store = initialState, action) {
+export default function pizzasReducer(store = initialState, action) {
   switch (action.type) {
     case "SET_PIZZAS":
       return {

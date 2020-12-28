@@ -2,7 +2,7 @@ const initialState = {
   category: null,
   sortBy: "popularity",
 };
-export default function SET_SORT_BY(store = initialState, action) {
+export default function filterReducer(store = initialState, action) {
   switch (action.type) {
     case "SET_SORT_BY":
       return {

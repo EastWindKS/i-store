@@ -1,10 +1,20 @@
 import React, { useState } from "react";
 import classNames from "classnames";
 const pizzasBoardTypeArray = ["thin", "traditional"];
-export default function PizzaItem({ pizza }) {
+
+export default function PizzaItem({ pizza, onAddPizzaToCart }) {
   const { sizes, name, price, imageUrl, id, types } = pizza;
   const [sizeChoose, setSizeChoose] = useState(0);
   const [typeBoard, setTypeBoard] = useState(types[0]);
+  const callOnAddPizzaToCart = () =>
+    onAddPizzaToCart({
+      id,
+      price,
+      name,
+      imageUrl,
+      size: sizes[sizeChoose],
+      type: pizzasBoardTypeArray[typeBoard],
+    });
   return (
     <div className="pizza-block">
       <img className="pizza-block__image" src={imageUrl} alt="Pizza" />
@@ -40,8 +50,7 @@ export default function PizzaItem({ pizza }) {
         <div className="pizza-block__price">от {price} ₽</div>
         <div className="button button--outline button--add">
           <img src="./img/plus.svg" alt="add" />
-          <span>Добавить</span>
-          <i>2</i>
+          <span onClick={callOnAddPizzaToCart}>Add</span>
         </div>
       </div>
     </div>

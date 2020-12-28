@@ -4,14 +4,20 @@ import PizzaItem from "../Components/PizzaItem";
 import SortPopup from "../Components/SortPopup";
 import { useSelector } from "react-redux";
 import Loader from "react-loader-spinner";
+import { useDispatch } from "react-redux";
+import { addPizzaToCart } from "../redux/actions/cart";
 
 export default function Home() {
+  const dispatch = useDispatch();
   const { pizzas, loading } = useSelector(({ pizzas }) => {
     return {
       pizzas: pizzas.items,
       loading: pizzas.isLoaded,
     };
   });
+  function onAddPizzaToCart(pizza) {
+    dispatch(addPizzaToCart(pizza));
+  }
   return (
     <div className="container">
       <div className="content__top">
@@ -22,7 +28,13 @@ export default function Home() {
       <div className="content__items">
         {loading &&
           pizzas?.map((pizza) => {
-            return <PizzaItem pizza={pizza} key={pizza.id} />;
+            return (
+              <PizzaItem
+                pizza={pizza}
+                key={pizza.id}
+                onAddPizzaToCart={onAddPizzaToCart}
+              />
+            );
           })}
         {!loading && (
           <Loader
