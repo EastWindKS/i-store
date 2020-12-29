@@ -48,9 +48,12 @@ export default function PizzaItem({ pizza, onAddPizzaToCart }) {
       </div>
       <div className="pizza-block__bottom">
         <div className="pizza-block__price">от {price} ₽</div>
-        <div className="button button--outline button--add">
+        <div
+          className="button button--outline button--add"
+          onClick={callOnAddPizzaToCart}
+        >
           <img src="./img/plus.svg" alt="add" />
-          <span onClick={callOnAddPizzaToCart}>Add</span>
+          <span>Add</span>
         </div>
       </div>
     </div>

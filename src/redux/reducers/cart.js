@@ -48,7 +48,43 @@ export default function cartReducer(state = initialState, action) {
         totalPrice: calculateTotalSum(state.addedPizzas),
         totalCount: calculateTotalCount(state.addedPizzas),
       };
-
+    case "DELETE_CURR_PIZZA":
+      delete state.addedPizzas[action.payload];
+      return {
+        ...state,
+        addedPizzas: {
+          ...state.addedPizzas,
+        },
+      };
+    case "PLUS_PIZZA_IN_CART":
+      const plusId = action.payload;
+      return {
+        ...state,
+        addedPizzas: {
+          ...state.addedPizzas,
+          [plusId]: {
+            ...state.addedPizzas[plusId],
+            count: state.addedPizzas[plusId].count + 1,
+          },
+        },
+      };
+    case "MINUS_PIZZA_IN_CART":
+      const minusId = action.payload;
+      return {
+        ...state,
+        addedPizzas: {
+          ...state.addedPizzas,
+          [minusId]: {
+            ...state.addedPizzas[minusId],
+            count: state.addedPizzas[minusId].count - 1,
+          },
+        },
+      };
+    case "CLEAR_CART":
+      return {
+        ...state,
+        addedPizzas: {},
+      };
     default:
       return state;
   }
