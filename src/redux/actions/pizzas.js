@@ -22,7 +22,7 @@ export function fetchAllPizzas(category, filter) {
   return async (dispathc) => {
     dispathc({ type: "SET_LOADING" });
     await axios
-      .get(`https://localhost:44356/pizzas?${query}`)
+      .get(`https://simpleserverasp.herokuapp.com/pizzas?${query}`)
       .then(({ data }) => {
         dispathc({
           type: "SET_PIZZAS",

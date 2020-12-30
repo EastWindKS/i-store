@@ -29,7 +29,7 @@ export default function CartItem({ pizza, dispatch }) {
       <div className="cart__item-info">
         <h3>{name}</h3>
         <p>
-          {type} тесто, {size} см.
+          {type} dough, {size} sm
         </p>
       </div>
       <div className="cart__item-count">
